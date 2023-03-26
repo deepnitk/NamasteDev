@@ -1,0 +1,23 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is Namaste React bootcamp",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepnitk/NamasteDev.git"
+  },
+  "keywords": [],
+  "author": "Ratnadeep Konar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deepnitk/NamasteDev/issues"
+  },
+  "homepage": "https://github.com/deepnitk/NamasteDev#readme",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
+}
