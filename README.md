@@ -16,3 +16,4 @@ Hello React! 🚀
 -Code Spliting
 -Differential Bundling -- support old and differnet browsers
 -Tree Shaking -- remove unused code for you.
+-different dev and prod build
