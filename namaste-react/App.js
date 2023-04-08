@@ -8,7 +8,8 @@ const HeadingComponent = () => {
     return (
         <div>
             <Title/>
-            <h1>Naamaste react 🚀 Functional Component!</h1>;
+            <h1>{100+200}</h1>
+            <h1>Naamaste react 🚀 Functional Component!</h1>
         </div>
     );
 }
