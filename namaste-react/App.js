@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const Title = () => {
-    return <h1 className="title" tabIndex="5">It's a Title!</h1>;
-}
+const title =  (
+    <h1>It's a Title!</h1>
+);
+
 const HeadingComponent = () => {
     return (
         <div>
-            <Title/>
+            {title}
             <h1>{100+200}</h1>
             <h1>Naamaste react 🚀 Functional Component!</h1>
         </div>
