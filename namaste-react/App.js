@@ -1,5 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+/* 
+    --> Header
+        --> Logo
+        --> Nav Items
+    --> Body
+        --> Search
+        --> ReastuarantContaoner
+            --> ReastuarantCard
+    --> Footer
+        --> Copyrights
+        --> Links
+        --> Address
+        --> Contact
+ */
+
+
 const elm = <span>I am a span!</span>
 const Title = () =>  {
     return (<h1>
