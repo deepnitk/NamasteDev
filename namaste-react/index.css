@@ -4,6 +4,10 @@
     border: 1px solid black;
 }
 
+/* h4 {
+    width: 100%;
+} */
+
 .nav-items {
     padding: 0px 35px;
 }
@@ -30,8 +34,8 @@
 }
 
 .res-card {
-    width: 200px;
-    height: 300px;
+    width: 370px;
+    /* height: 420px; */
     background-color: yellowgreen;
     padding: 10px;
     margin: 10px;
