@@ -45,3 +45,11 @@ Hello React! 🚀
 
 --Default export
 --Named export
+
+# React Hooks
+
+--Normal JS function written inside React by FB developers
+--Two very important Hooks
+    --useState()
+        --used to generate state variables for your component
+    --useEffect()
