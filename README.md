@@ -17,3 +17,31 @@ Hello React! 🚀
 -Differential Bundling -- support old and differnet browsers
 -Tree Shaking -- remove unused code for you.
 -different dev and prod build
+
+
+# Tummy Full
+
+/* 
+    --> Header
+        --> Logo
+        --> Nav Items
+    --> Body
+        --> Search
+        --> ReastuarantContaoner
+            --> ReastuarantCard
+                --> Image
+                --> Name
+                --> Price
+                --> Description
+                --> Star Rating
+    --> Footer
+        --> Copyrights
+        --> Links
+        --> Address
+        --> Contact
+*/
+
+# Types of export/Import
+
+--Default export
+--Named export
