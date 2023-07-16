@@ -13,6 +13,10 @@ class UserClass extends React.Component {
     }
 
     async componentDidMount() {
+        this.timer = setInterval(() =>{
+            console.log("Sab Moh Maya hai!"); 
+        }, 1000);
+
         const data = await fetch("https://api.github.com/users/deepnitk");
         const json = await data.json();
         this.setState({
@@ -27,6 +31,7 @@ class UserClass extends React.Component {
 
     componentWillUnmount() {
         console.log('componentWillUnmount called!!!');
+        clearInterval(this.timer);
     }
 
     render() {
