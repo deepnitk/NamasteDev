@@ -37,11 +37,6 @@ class About extends React.Component {
                     twitter={"@nandini"}
                     location={"Bangkok"}
                 />
-                <UserClass
-                    name={"Ratnadeep"}
-                    twitter={"@ratnadek"}
-                    location={"Nepal"}
-                />
             </div>
         );
     };
