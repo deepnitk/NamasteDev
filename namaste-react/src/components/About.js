@@ -20,9 +20,14 @@ class About extends React.Component {
 
     constructor(props) {
         super(props);
+        console.log('parents constructor called');
     }
+    componentDidMount() {
+        console.log('parents componentDidMount called');
+    };
 
     render() {
+        console.log('parents render called');
         return (
             <div>
                 <h1>About US</h1>
@@ -31,6 +36,11 @@ class About extends React.Component {
                     name={"Nandini"}
                     twitter={"@nandini"}
                     location={"Bangkok"}
+                />
+                <UserClass
+                    name={"Ratnadeep"}
+                    twitter={"@ratnadek"}
+                    location={"Nepal"}
                 />
             </div>
         );

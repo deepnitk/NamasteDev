@@ -7,15 +7,15 @@ class UserClass extends React.Component {
         this.state = {
             count: 0,
         };
-        console.log('child constructor is called')
+        console.log(this.props.name + ' child constructor is called')
     }
 
     componentDidMount() {
-        console.log('child component coponentDidmount called');
+        console.log(this.props.name + ' child component coponentDidmount called');
     }
 
     render() {
-        console.log('render method is called');
+        console.log(this.props.name + ' render method is called');
         const {name, location, twitter} = this.props;
         const {count, count2} = this.state;
         return <div className="userCard">
@@ -31,5 +31,19 @@ class UserClass extends React.Component {
         </div>
     };
 }
+
+/*
+    -- Parent Costructor Method
+    -- Parent render method
+        -- Child1 constructor method
+        -- Child1 render method
+        
+        -- Child2 constructor method
+        -- Child2 render method
+
+        -- Child1 conponentDidMount method
+        -- Child2  componentDidMount
+    -- Parent componentDidMount method
+*/
 
 export default UserClass;
