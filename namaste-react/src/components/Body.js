@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLevel } from "./RestaurantCard";
 import {useEffect, useState} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,6 +11,8 @@ const Body = () => {
     useEffect(() => {
         fetchData();
     },[]);
+    console.log(listOfRestaurants);
+    const RestuarantCardPromoted = withPromotedLevel(RestaurantCard);
 
     const fetchData = async () => {
         const data = await fetch('https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&lat=18.5158057&lng=73.9271644&page_type=DESKTOP_WEB_LISTING');
@@ -62,7 +64,9 @@ const Body = () => {
             <div className="flex flex-wrap">
               {filteredRestaurants?.map((restaurant) => (
                 <Link  key={restaurant?.info?.id} to ={"/restaurants/" + restaurant?.info?.id}>
-                    <RestaurantCard resData={restaurant} />
+                    {restaurant?.info?.avgRating > 4 ? 
+                        <RestuarantCardPromoted  resData={restaurant} /> : 
+                        <RestaurantCard  resData={restaurant} />}
                 </Link>
                 
               ))}

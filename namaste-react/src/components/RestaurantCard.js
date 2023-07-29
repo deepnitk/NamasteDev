@@ -18,4 +18,21 @@ const ReastuarantCard = (props) => {
     );
 }
 
+    /*
+        HOC
+        Input is RestaurantCard and Output is RestaurantCardEnhanced
+    */
+
+    export const withPromotedLevel = (ReastuarantCard) => {
+        return (props) => {
+            return(
+                <div>
+                    <label className="absolute bg-black text-white m-2 p-2 rounded-lg">Promoted</label>
+                    <ReastuarantCard {...props}/>
+                </div>
+            );
+        }
+    }
+    
+
 export default ReastuarantCard;
