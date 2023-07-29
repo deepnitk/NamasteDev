@@ -15,8 +15,8 @@ const Body = () => {
     const fetchData = async () => {
         const data = await fetch('https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&lat=18.5158057&lng=73.9271644&page_type=DESKTOP_WEB_LISTING');
         const json = await data.json();
-        setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-        setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+        setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
 
@@ -42,7 +42,7 @@ const Body = () => {
                             //filter restaurant card by search value
                             //set search value from input
                             console.log(searchText);
-                            const filteredRestaurant = listOfRestaurants.filter((restaurant) => restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
+                            const filteredRestaurant = listOfRestaurants.filter((restaurant) => restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
                             );
                             setFilteredRestaurants(filteredRestaurant);
 
@@ -51,7 +51,7 @@ const Body = () => {
                     <button className="px-4 py-2 bg-green-100 m-4 rounded-lg" onClick={( ) => {
                         setListOfRestaurants(
                             listOfRestaurants.filter( 
-                                (restaurant) => restaurant.data.avgRating > 4
+                                (restaurant) => restaurant?.info?.avgRating > 4
                             )
                         );
                     }}>
@@ -60,8 +60,8 @@ const Body = () => {
             </div>
             </div>
             <div className="flex flex-wrap">
-              {filteredRestaurants.map((restaurant) => (
-                <Link  key={restaurant.data.id} to ={"/restaurants/" + restaurant.data.id}>
+              {filteredRestaurants?.map((restaurant) => (
+                <Link  key={restaurant?.info?.id} to ={"/restaurants/" + restaurant?.info?.id}>
                     <RestaurantCard resData={restaurant} />
                 </Link>
                 
