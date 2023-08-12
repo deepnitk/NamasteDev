@@ -7,7 +7,7 @@ import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider as Provider, Outlet } from "react-router-dom";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
-// import { Provider } from "react";
+import { Provider } from "react-redux";
 import UserContext from "./utils/UserContext";
 
 /*
@@ -32,14 +32,15 @@ const AppLayout = () => {
     }, []);
 
     return (
-        <UserContext.Provider value={{ loggedInUser: userName, setUserName}}>
-            <div className="app">
-                <Header />
-                <Outlet />
-            </div>
-        </UserContext.Provider>
-
-    )
+        <Provider>
+            <UserContext.Provider value={{ loggedInUser: userName, setUserName}}>
+                <div className="app">
+                    <Header />
+                    <Outlet />
+                </div>
+            </UserContext.Provider>
+        </Provider>
+    );
 }
 
 const appRouter = createBrowserRouter([
