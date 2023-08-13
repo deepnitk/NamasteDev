@@ -4,11 +4,12 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 // import About from "./components/About";
 import Contact from "./components/Contact";
-import { createBrowserRouter, RouterProvider as Provider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
 import UserContext from "./utils/UserContext";
+import appStore from "./utils/appStore";
 
 /*
     1. Chunking
@@ -32,7 +33,7 @@ const AppLayout = () => {
     }, []);
 
     return (
-        <Provider>
+        <Provider store={appStore}>
             <UserContext.Provider value={{ loggedInUser: userName, setUserName}}>
                 <div className="app">
                     <Header />
@@ -73,5 +74,5 @@ const appRouter = createBrowserRouter([
     }, 
 ])
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Provider router={appRouter}/>);
+root.render(<RouterProvider router={appRouter}/>);
 
