@@ -38,7 +38,6 @@ describe("Contact US page Test Case", () => {
     it("Should load two input box inside contact component", () => {
         render(<Contact/>);
         const inputBoxes = screen.getAllByRole("textbox");
-        console.log(inputBoxes);
         expect(inputBoxes.length).toBe(2);
     });
 })
