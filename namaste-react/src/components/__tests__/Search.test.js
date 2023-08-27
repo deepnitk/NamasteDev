@@ -13,6 +13,7 @@ global.fetch = jest.fn(() => {
         }
     });
 });
+
 it("Should search res list for Burger text input", async () => {
     await act(async () => {
         render(
@@ -33,4 +34,23 @@ it("Should search res list for Burger text input", async () => {
     //expect Burger King to be as a search result
     const resCard = screen.getAllByTestId("resCard");
     expect(resCard.length).toBe(1);
-})
+});
+
+it("Should filter top rated restaurant", async () => {
+    await act(async () => {
+        render(
+            <BrowserRouter>
+                <Body/>
+            </BrowserRouter>
+        );
+    });
+    const initialResCard = screen.getAllByTestId("resCard");
+    expect(initialResCard.length).toBe(20);
+
+    const topRatedButton = screen.getByTestId("topRatedButton");
+    fireEvent.click(topRatedButton);
+    
+    //expect Burger King to be as a search result
+    const resCard = screen.getAllByTestId("resCard");
+    expect(resCard.length).toBe(10);
+});

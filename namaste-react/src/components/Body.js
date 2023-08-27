@@ -9,13 +9,16 @@ const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([])
     const [searchText, setSearchText] = useState('');
+    const RestuarantCardPromoted = withPromotedLevel(RestaurantCard);
     useEffect(() => {
         fetchData();
     },[]);
-    const RestuarantCardPromoted = withPromotedLevel(RestaurantCard);
+    
 
     const fetchData = async () => {
-        const data = await fetch('https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&lat=18.5158057&lng=73.9271644&page_type=DESKTOP_WEB_LISTING');
+        const data = await fetch(
+		"https://www.swiggy.com/mapi/restaurants/list/v5?offset=0&lat=18.5158057&lng=73.9271644&page_type=DESKTOP_WEB_LISTING"
+		);
         const json = await data.json();
         setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -23,7 +26,8 @@ const Body = () => {
 
 
     const isOnline = useOnlineStatus();
-    if (isOnline === false) return <h1>Looks like you are offline!! Please check your internet connection.</h1>
+    if (isOnline === false) 
+    	return <h1>Looks like you are offline!! Please check your internet connection.</h1>
 
     const { loggedInUser, setUserName } = useContext(UserContext);
 
@@ -47,19 +51,23 @@ const Body = () => {
                             //filter restaurant card by search value
                             //set search value from input
                             console.log(searchText);
-                            const filteredRestaurant = listOfRestaurants.filter((restaurant) => restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
+                            const filteredRestaurant = listOfRestaurants.filter((restaurant) => 
+			    	restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
                             );
                             setFilteredRestaurants(filteredRestaurant);
 
                         }}>Search
                     </button>
-                    <button className="px-4 py-2 bg-green-100 m-4 rounded-lg" onClick={( ) => {
-                        setListOfRestaurants(
-                            listOfRestaurants.filter( 
-                                (restaurant) => restaurant?.info?.avgRating > 4
-                                )
-                            );
-                        }}>
+                    <button
+                       data-testid="topRatedButton" 
+		    	        className="px-4 py-2 bg-gray-100 rounded-lg" 
+                        onClick={( ) => {
+                            const filteredList = listOfRestaurants.filter( 
+                                                (restaurant) => restaurant?.info?.avgRating > 4
+                                                );
+                        setFilteredRestaurants(filteredList);
+		    	}}
+		    >
                         Top Rated Restaurants
                     </button>
                     <label>Username: </label>
@@ -81,7 +89,7 @@ const Body = () => {
               ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Body;
